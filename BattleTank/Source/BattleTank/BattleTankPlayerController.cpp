@@ -41,15 +41,18 @@ void ABattleTankPlayerController::Tick(float DeltaTime)
 
 void ABattleTankPlayerController::AIMTowardCrossHair()
 {
+	
 	if (!GetControlledTank()) { return; }
 
-	
+	 
 	FVector Hitlocation;
+	
 	if (GetSightRayHitLocation(Hitlocation))
 	{
+		GetControlledTank()->AimAt(Hitlocation);
 		
-		UE_LOG(LogTemp, Warning, TEXT("Hit LOcation : %s"), *Hitlocation.ToString());
-			//TODO tell controlles to aim at this point
+		
+		
 	}
 	
 }
